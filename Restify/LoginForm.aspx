@@ -12,17 +12,17 @@
             <br />
                 
             
-            <input class="rounded-3 w-75 h-75 border-0 shadow justify-content-center" placeholder="Email" type="text" id="userName" />
+            <asp:TextBox runat="server" ID="email" class="rounded-3 w-75 h-75 border-0 shadow justify-content-center" placeholder="Email"  ></asp:TextBox>
              <br />
              <br />
             
-            <input class="rounded-3 w-75  h-75 border-0 shadow justify-content-center " placeholder="Password" type="password" id="pass" />
+             <asp:TextBox TextMode="Password" runat="server" ID="pass" class="rounded-3 w-75 h-75 border-0 shadow justify-content-center" placeholder="Password"  ></asp:TextBox>
        
             <br />
             <br />
             <br />
             
-            <button type="submit" class="btn bg-white shadow justify-content-center" style="color:#56327E">Login</button>
+            <asp:Button  Text="Login" runat="server" ID="loginClick" OnClick="loginClick_Click" class="btn bg-white shadow justify-content-center" style="color:#56327E"/>
             <br />
             <br />
             <p>No account? Click <a style="color:#56327E" href="Register.aspx">Here</a></p>

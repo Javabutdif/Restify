@@ -42,11 +42,11 @@
         </div>
          <br />
       
-         <asp:Button ID="Button1" runat="server" OnClick="signUp" Text="Button" />
+         
       
          <br />
          <br />
-         <button type="submit" class="btn  btn-success" formmethod="post">Sign Up</button>
+         <asp:Button ID="Button1" Text="Sign Up" runat="server" OnClick="signUp" class="btn  btn-success" />
          <br />
          <br />
          

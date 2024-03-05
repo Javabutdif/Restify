@@ -48,6 +48,7 @@ namespace Restify
                 command.ExecuteNonQuery();
                 MessageBox.Show("Success!");
                 con.Close();
+                Response.Redirect("LoginForm.aspx");
 
              
             }
