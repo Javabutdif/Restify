@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RESTIFYModelStoreContainer" CdmEntityContainer="RESTIFYEntities">
+    <EntitySetMapping Name="Landlords">
+      <EntityTypeMapping TypeName="RESTIFYModel.Landlord">
+        <MappingFragment StoreEntitySet="Landlord">
+          <ScalarProperty Name="land_id" ColumnName="land_id" />
+          <ScalarProperty Name="land_first_name" ColumnName="land_first_name" />
+          <ScalarProperty Name="land_last_name" ColumnName="land_last_name" />
+          <ScalarProperty Name="land_email" ColumnName="land_email" />
+          <ScalarProperty Name="land_contact" ColumnName="land_contact" />
+          <ScalarProperty Name="land_password" ColumnName="land_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
