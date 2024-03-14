@@ -1,15 +1,28 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Restify._Default" %>
 
+
+
+
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+ 
+  
+    
 
-
-    <main>
-        
-
+    <!-- Include Bootstrap JavaScript -->
+   
+   <main>
         <!-- Your existing content below -->
         <div class=" d-flex ">
-            <div class="position-sticky">
-                <img src="images/restifynobg.png" style="height:380px"/>
+            <div class="position=container">
+                &nbsp;<asp:Panel class="container d-lg-flex justify-content-left" ID="Panel2" runat="server" Width="996px ">
+                    <img src="images/restifynobg.png" style="height:400px"/>
+                     
+                             
+                 
+
+                </asp:Panel>
+                    
                 <br />
                <div class="position-sticky d-print-flex">
                  <div class="col-6 " style="background-color:#BCA9E9;padding-left:10%; padding-top:10%; padding-bottom:10%; margin-right:10%; border-radius: 20px 20px 20px 20px  ">
@@ -81,6 +94,8 @@
 
         </div>
         </div>
+
+      
     </main>
 
 

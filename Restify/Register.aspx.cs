@@ -16,8 +16,7 @@ namespace Restify
 {
     public partial class Register : System.Web.UI.Page
     {
-        private static ConnectionString connection = new ConnectionString();
-        private static SqlConnection con = new SqlConnection(connection.connect());
+        
         protected void Page_Load(object sender, EventArgs e)
         {
            
@@ -33,27 +32,17 @@ namespace Restify
             string contactNumber = contact.Text;
             string password = pass.Text;
 
-            String sql = "INSERT INTO Landlord (landlord_firstName , landlord_lastName, landlord_email, landlord_contact, landlord_password) " +
-                "VALUES (@firstName, @lastName, @email, @contactNumber, @password)";
+            Repository repo = new Repository();
 
-            using (SqlCommand command = new SqlCommand(sql, con))
+           if( repo.signUp(firstName, lastName, email, contactNumber, password))
             {
-                command.Parameters.Add("@firstName", SqlDbType.VarChar).Value = firstName;
-                command.Parameters.Add("@lastName", SqlDbType.VarChar).Value = lastName;
-                command.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
-                command.Parameters.Add("@contactNumber", SqlDbType.VarChar).Value = contactNumber;
-                command.Parameters.Add("@password", SqlDbType.VarChar).Value = password;
-
-                con.Open();
-                command.ExecuteNonQuery();
-                MessageBox.Show("Success!");
-                con.Close();
+                MessageBox.Show("Success","Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Response.Redirect("LoginForm.aspx");
-
-             
             }
-
-
+            else
+            {
+                MessageBox.Show("Email is in use!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
 
 

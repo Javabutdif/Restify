@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -7,6 +8,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
+
 
 namespace Restify
 {
@@ -21,42 +23,36 @@ namespace Restify
 
         protected void loginClick_Click(object sender, EventArgs e)
         {
-            LandlordModel landlord = new LandlordModel();
             string emailAddress = email.Text;
             string password = pass.Text;
+            Repository repo = new Repository();
 
-            string sql = "SELECT landlord_firstname, landlord_lastname, landlord_email, landlord_contact " +
-                         "FROM Landlord WHERE landlord_email = @email AND landlord_password = @password";
+         
 
-            
-                using (SqlCommand command = new SqlCommand(sql, con))
+
+            if (emailAddress == "admin" && password == "admin")
+            {
+                Response.Redirect("Admin.aspx");
+            }
+            else
+            {
+                LandlordModel landlord = repo.login(emailAddress, password);
+                if (landlord.email == emailAddress)
                 {
-                    command.Parameters.Add("@email", SqlDbType.NVarChar).Value = emailAddress;
-                    command.Parameters.Add("@password", SqlDbType.NVarChar).Value = password;
+                    MessageBox.Show("Login! Welcome " + landlord.firstName + " " + landlord.lastName, "Notifaction", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    Landlord.id = landlord.id;
+                    Landlord.firstname = landlord.firstName;
+                    Landlord.lastname = landlord.lastName;
+                    Landlord.email = landlord.email;
+                    Landlord.contact = landlord.contact;
 
-                    con.Open();
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            landlord.firstName = reader.GetString(reader.GetOrdinal("landlord_firstname"));
-                            landlord.lastName = reader.GetString(reader.GetOrdinal("landlord_lastname"));
-                            landlord.email = reader.GetString(reader.GetOrdinal("landlord_email"));
-                            landlord.contact = reader.GetString(reader.GetOrdinal("landlord_contact"));
-                        }
-                        else
-                        {
-                            MessageBox.Show("Invalid email or password.");
-                            return;
-                        }
-                    }
+                    Response.Redirect("Dashboard.aspx");
                 }
-            
+                else
+                    MessageBox.Show("Invalid Login!", "Notifaction", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
 
-            MessageBox.Show("Login! Welcome " + landlord.firstName + " " + landlord.lastName);
-            con.Close();
-            Response.Redirect("LoginForm.aspx");
+            }
+
         }
 
     }

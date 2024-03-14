@@ -6,7 +6,10 @@
         <h3> You can reach us through
          
         </h3>
-       
+        <asp:Panel ID="Panel3" runat="server">
+        </asp:Panel>
+
+
         <address>
            GenaBioTech Solutions - Talisay City, 6045<br />
             <abbr title="Phone">Contact us:</abbr>

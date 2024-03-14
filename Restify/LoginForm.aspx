@@ -2,6 +2,7 @@
 
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
+  
     <main>
         <div class="text-white rounded-4" style="text-align:center; padding-bottom:10%; background-color:#BCA9E9; margin-left:35%; margin-right:35%;">
             <br />
@@ -30,3 +31,5 @@
         </div>
     </main>
 </asp:Content>
+
+

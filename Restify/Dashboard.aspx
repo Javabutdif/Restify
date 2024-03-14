@@ -1,4 +1,5 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Restify.SiteMaster" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="Restify.Dashboard" %>
+
 
 <!DOCTYPE html>
 
@@ -6,7 +7,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - RestiFy</title>
+    <title><%: Page.Title %>- RestiFy</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -17,6 +18,7 @@
 
      <style>
      /* HEADING */
+
 
          body 
          {
@@ -65,34 +67,14 @@
 
  </style>
 
- 
-
 </head>
-<body>
-    <form runat="server">
-        <asp:ScriptManager runat="server">
-            <Scripts>
-                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
-                <%--Framework Scripts--%>
-                <asp:ScriptReference Name="MsAjaxBundle" />
-               
-                <asp:ScriptReference Name="jquery" />
-                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
-                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
-                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
-                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
-                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
-                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
-                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
-                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                <asp:ScriptReference Name="WebFormsBundle" />
-                   <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/jquery-3.4.1.min.js" />
-   <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/bootstrap.bundle.min.js" />
-                <%--Site Scripts--%>
-            </Scripts>
-        </asp:ScriptManager>
 
+<body>
       
+    
+        <form id="form1" runat="server">
+      
+    
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm " style="background-color:#56327E" >
             <div class="container gap-2">
                
@@ -104,31 +86,44 @@
                 </button>
                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1 ">
-                        <li class="nav-item "><a class="nav-link text-white" runat="server" href="~/">Home</a></li>
+                        <li class="nav-item "><a class="nav-link text-white" runat="server" href="~/">Profile</a></li>
                         
-                        <li class="nav-item "><a class="nav-link text-white" runat="server" href="~/Contact">Contact</a></li>
+                        <li class="nav-item "><a class="nav-link text-white" runat="server" href="~/Contact">Apartment</a></li>
                       
                         <li class="nav-item " style="margin-left:55%; border-radius: 20% 20% 20% 20%"  ><input class="nav-link text-black"   type="text" name="search" placeholder="Search"  /></li>
-                        <li class="nav-item " style="margin-left:15%"><a class="nav-link text-white"  runat="server" href="LoginForm.aspx">Login</a></li>
+                        <li class="nav-item " style="margin-left:15%"><a class="nav-link text-white"  runat="server" href="LoginForm.aspx">Logout</a></li>
                        
                     </ul>
                 </div>
             </div>
         </nav>
-        <div class="container body-content" >
-
-            
-            
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
+        
+     
+            <asp:Label ID="output" runat="server" Height="50px" OnLoad="Page_Load" Text="Label" Width="288px"></asp:Label>
+        
+     
+            <br />
+            <br />
+            <br />
+            <asp:Button ID="Button1" runat="server" Text="Add Apartment" Width="141px" OnClick="Button1_Click" />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        
+     
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %>- My ASP.NET Application</p>
             </footer>
-        </div>
-    </form>
+ 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
     </asp:PlaceHolder>
+            <p>
+                &nbsp;</p>
+        </form>
 </body>
 </html>
+

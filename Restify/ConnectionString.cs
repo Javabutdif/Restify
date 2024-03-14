@@ -7,9 +7,11 @@ namespace Restify
 {
     public class ConnectionString
     {
-        public string connect()
+        private String connectionSource = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=RESTIFY;Integrated Security=True";
+       
+        public String connect()
         {
-            return @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Restify;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+            return connectionSource;
         }
     }
 }
